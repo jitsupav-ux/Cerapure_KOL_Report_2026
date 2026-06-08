@@ -179,7 +179,7 @@ html[data-lang="th"] .hero h1 .sub2{font-family:'Prompt';font-style:normal;font-
 .abody{font-size:12.5px;color:var(--ink2);line-height:1.7;margin-bottom:13px}
 .atags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
 .atag{font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:100px;background:var(--blue-b);color:var(--blue-d);border:1px solid var(--ln)}
-.ametrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding-top:13px;border-top:1px solid var(--ln)}
+.ametrics{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding-top:13px;border-top:1px solid var(--ln)}
 .ametric{text-align:center}
 .m-lbl{font-size:9.5px;color:var(--mu);font-weight:600}
 .m-val{font-family:'Prompt';font-weight:600;font-size:15px;margin-top:2px}
@@ -242,6 +242,7 @@ html[data-lang="th"] .hero h1 .sub2{font-family:'Prompt';font-style:normal;font-
       <div class="hero-stat"><span class="k"><span class="lang-en">Total KOLs</span><span class="lang-th">จำนวน KOL</span></span><span class="v" id="h-kol">&mdash;</span></div>
       <div class="hero-stat"><span class="k"><span class="lang-en">Combined Followers</span><span class="lang-th">ผู้ติดตามรวม</span></span><span class="v aqua" id="h-fol">&mdash;</span></div>
       <div class="hero-stat"><span class="k"><span class="lang-en">Total Impressions</span><span class="lang-th">Impression รวม</span></span><span class="v" id="h-imp">&mdash;</span></div>
+      <div class="hero-stat"><span class="k"><span class="lang-en">Total Views</span><span class="lang-th">View รวม</span></span><span class="v aqua" id="h-vv">&mdash;</span></div>
       <div class="hero-stat"><span class="k"><span class="lang-en">Total Reach</span><span class="lang-th">Reach รวม</span></span><span class="v" id="h-reach">&mdash;</span></div>
       <div class="hero-stat"><span class="k"><span class="lang-en">Total Engagement</span><span class="lang-th">Engagement รวม</span></span><span class="v" id="h-eng">&mdash;</span></div>
       <div class="hero-stat"><span class="k"><span class="lang-en">Avg. Engagement Rate</span><span class="lang-th">ER เฉลี่ย</span></span><span class="v aqua" id="h-er">&mdash;</span></div>
@@ -290,6 +291,7 @@ html[data-lang="th"] .hero h1 .sub2{font-family:'Prompt';font-style:normal;font-
         <button class="sort-pill active" data-sort="eng">Engagement</button>
         <button class="sort-pill" data-sort="er">ER</button>
         <button class="sort-pill" data-sort="imp">Impression</button>
+        <button class="sort-pill" data-sort="vv">View</button>
         <button class="sort-pill" data-sort="reach">Reach</button>
         <button class="sort-pill" data-sort="fol">Follower</button>
       </div>
@@ -396,6 +398,7 @@ T.er = T.imp? T.eng/T.imp : 0;
 document.getElementById('h-kol').textContent=T.kol;
 document.getElementById('h-fol').textContent=fmt(T.fol);
 document.getElementById('h-imp').textContent=fmt(T.imp);
+document.getElementById('h-vv').textContent=fmt(T.vv);
 document.getElementById('h-reach').textContent=fmt(T.reach);
 document.getElementById('h-eng').textContent=full(T.eng);
 document.getElementById('h-er').textContent=(T.er*100).toFixed(2)+'%';
@@ -436,8 +439,8 @@ document.getElementById('ins-title').innerHTML=`<span class="lang-en">Engagement
 document.getElementById('ins-body').innerHTML=`<span class="lang-en">Across ${T.kol} Nano creators the campaign delivered <b>${full(T.imp)} impressions</b>, <b>${full(T.reach)} reach</b> and <b>${full(T.eng)} engagements</b> with a pooled ER of <b>${(T.er*100).toFixed(2)}%</b>. Volume is uneven: <b>${topEng.a}</b> alone produced ${full(topEng.eng)} engagements (${topShareShare}% of the total), and just two creators &mdash; <b>${topEng.a}</b> and <b>bo.bunika</b> &mdash; carry the bulk of impressions. The takeaway for a Nano seeding layer is reach efficiency, not headline ER: a handful of clips break out while the long tail builds steady, low-cost coverage.</span><span class="lang-th">จาก Nano ครีเอเตอร์ ${T.kol} ราย แคมเปญสร้าง <b>Impression ${full(T.imp)}</b>, <b>Reach ${full(T.reach)}</b> และ <b>Engagement ${full(T.eng)}</b> โดยมี ER รวมที่ <b>${(T.er*100).toFixed(2)}%</b> ปริมาณกระจายไม่เท่ากัน โดย <b>${topEng.a}</b> รายเดียวสร้าง Engagement ${full(topEng.eng)} (คิดเป็น ${topShareShare}% ของทั้งหมด) และมีเพียงสองรายคือ <b>${topEng.a}</b> กับ <b>bo.bunika</b> ที่แบกยอด Impression ส่วนใหญ่ บทสรุปของชั้น Nano seeding คือความคุ้มค่าด้าน Reach มากกว่าตัวเลข ER โดยมีไม่กี่คลิปที่ปังเป็นพิเศษ ขณะที่กลุ่ม Long-tail ช่วยสร้าง Coverage ต่อเนื่องในต้นทุนต่ำ</span>`;
 
 /* ---- TOP TABLE ---- */
-const headEN=['#','KOL','Channel','Followers','Impression','Reach','Engagement','ER'];
-const headTH=['#','KOL','ช่องทาง','ผู้ติดตาม','Impression','Reach','Engagement','ER'];
+const headEN=['#','KOL','Channel','Followers','Impression','View','Reach','Engagement','ER'];
+const headTH=['#','KOL','ช่องทาง','ผู้ติดตาม','Impression','View','Reach','Engagement','ER'];
 function mkHead(){return `<tr>${headEN.map((h,i)=>`<th${i>2?' style="text-align:right"':''}><span class="lang-en">${h}</span><span class="lang-th">${headTH[i]}</span></th>`).join('')}</tr>`;}
 const tiktokIcon='<span class="plat-icon tiktok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8.2a6.3 6.3 0 0 0 3.7 1.2V6.7a3.6 3.6 0 0 1-1.9-.6 3.7 3.7 0 0 1-1.6-2.6H13.6v11.2a2.3 2.3 0 1 1-2.3-2.3c.2 0 .4 0 .6.1V9.7a5 5 0 1 0 4.1 4.9z"/></svg></span>';
 
@@ -450,6 +453,7 @@ function rowHTML(d,i){
     <td><span class="media-pill">${tiktokIcon} TikTok</span></td>
     <td class="num">${f(d.fol)}</td>
     <td class="num">${f(d.imp)}</td>
+    <td class="num">${f(d.vv)}</td>
     <td class="num">${f(d.reach)}</td>
     <td class="num">${f(d.eng)}</td>
     <td class="num">${(d.er*100).toFixed(2)}%</td>
@@ -561,6 +565,7 @@ document.getElementById('highlight-grid').innerHTML=picks.map(p=>{const d=p.d;re
     <div class="ametrics">
       <div class="ametric"><div class="m-lbl"><span class="lang-en">Followers</span><span class="lang-th">ผู้ติดตาม</span></div><div class="m-val">${fmt(d.fol)}</div></div>
       <div class="ametric"><div class="m-lbl">Impression</div><div class="m-val">${fmt(d.imp)}</div></div>
+      <div class="ametric"><div class="m-lbl">View</div><div class="m-val">${fmt(d.vv)}</div></div>
       <div class="ametric"><div class="m-lbl">Reach</div><div class="m-val">${d.reach?fmt(d.reach):'&mdash;'}</div></div>
       <div class="ametric"><div class="m-lbl">Engage</div><div class="m-val">${full(d.eng)}</div></div>
     </div>
