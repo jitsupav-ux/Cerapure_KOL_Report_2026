@@ -189,6 +189,7 @@ html[data-lang="th"] .hero h1 .sub2{font-family:'Prompt';font-style:normal;font-
 .footer .f-brand{font-family:'Prompt',sans-serif;font-size:17px;color:var(--blue-d);font-weight:600}
 
 .note{font-size:11.5px;color:var(--mu);margin-top:10px;font-style:italic}
+.confidential{margin-top:16px;padding-top:14px;border-top:1px dashed var(--ln);font-size:10.5px;letter-spacing:.05em;color:var(--mu);text-transform:uppercase;line-height:1.6;text-align:center}
 
 @media(max-width:880px){
   .hero{padding:34px 26px}
@@ -228,8 +229,8 @@ html[data-lang="th"] .hero h1 .sub2{font-family:'Prompt';font-style:normal;font-
   <div class="hero-grid">
     <div>
       <div class="hero-badge"><div class="ring"><span>Cerapuré</span></div></div>
-      <div class="hero-tag"><span class="pulse-dot"></span><span class="lang-en">KOL Seeding Report &middot; Nano Tier</span><span class="lang-th">รายงาน KOL Seeding &middot; กลุ่ม Nano</span></div>
-      <h1><span class="lang-en">Skin-First Storytelling<span class="sub2">Nano KOL Performance Report</span></span><span class="lang-th">Skin-First Storytelling<span class="sub2">รายงานผลงาน Nano KOL</span></span></h1>
+      <div class="hero-tag"><span class="pulse-dot"></span><span class="lang-en">KOC Seeding Report &middot; Nano Tier</span><span class="lang-th">รายงาน KOC Seeding &middot; กลุ่ม Nano</span></div>
+      <h1><span class="lang-en">Skin-First Storytelling<span class="sub2">Nano KOC Performance Report</span></span><span class="lang-th">Skin-First Storytelling<span class="sub2">รายงานผลงาน Nano KOC</span></span></h1>
       <div class="hero-meta">
         <div><div class="label"><span class="lang-en">Brand</span><span class="lang-th">แบรนด์</span></div><div class="value">Cerapuré</div></div>
         <div><div class="label"><span class="lang-en">Channel</span><span class="lang-th">ช่องทาง</span></div><div class="value">TikTok</div></div>
@@ -266,7 +267,7 @@ html[data-lang="th"] .hero h1 .sub2{font-family:'Prompt';font-style:normal;font-
     <div class="count-card">
       <div><div class="count-label"><span class="lang-en">Combined Followers</span><span class="lang-th">ผู้ติดตามรวม</span></div>
       <div class="count-val" id="c-fol">&mdash;</div></div>
-      <span class="count-status info"><span class="lang-en">Potential Audience</span><span class="lang-th">ฐานผู้ชมรวม</span></span>
+      <span class="count-status info"><span class="lang-en">Potential Audience</span><span class="lang-th">จำนวนผู้ติดตามรวม</span></span>
     </div>
   </div>
   <div class="kpi-grid" id="kpi-grid"></div>
@@ -369,8 +370,9 @@ html[data-lang="th"] .hero h1 .sub2{font-family:'Prompt';font-style:normal;font-
 
   <div class="footer">
     <div><span class="f-brand">Cerapuré</span> &middot; <span class="lang-en">KOL Campaign Report</span><span class="lang-th">รายงานแคมเปญ KOL</span></div>
-    <div><span class="lang-en">Generated from campaign raw data &middot; TikTok Nano seeding</span><span class="lang-th">จัดทำจากข้อมูลของแคมเปญ &middot; TikTok Nano seeding</span></div>
+    <div><span class="lang-en">Generated from campaign data &middot; TikTok Nano seeding</span><span class="lang-th">จัดทำจากข้อมูลของแคมเปญ &middot; TikTok Nano seeding</span></div>
   </div>
+  <p class="confidential">This proposal is the property of TPS. All information is confidential and not allowed to be published, used, sold, or given to anybody without prior approval from TPM.</p>
 </section>
 
 </div>
@@ -436,7 +438,7 @@ document.getElementById('kpi-grid').innerHTML=metrics.map(m=>`
 const topEng=[...DATA].sort((a,b)=>b.eng-a.eng)[0];
 const topShareShare=Math.round(topEng.eng/T.eng*100);
 document.getElementById('ins-title').innerHTML=`<span class="lang-en">Engagement is concentrated &mdash; one creator drove ${topShareShare}% of all interactions</span><span class="lang-th">Engagement กระจุกตัว &mdash; ครีเอเตอร์รายเดียวสร้าง Interaction ${topShareShare}% ของทั้งหมด</span>`;
-document.getElementById('ins-body').innerHTML=`<span class="lang-en">Across ${T.kol} Nano creators the campaign delivered <b>${full(T.imp)} impressions</b>, <b>${full(T.reach)} reach</b> and <b>${full(T.eng)} engagements</b> with a pooled ER of <b>${(T.er*100).toFixed(2)}%</b>. Volume is uneven: <b>${topEng.a}</b> alone produced ${full(topEng.eng)} engagements (${topShareShare}% of the total), and just two creators &mdash; <b>${topEng.a}</b> and <b>bo.bunika</b> &mdash; carry the bulk of impressions. The takeaway for a Nano seeding layer is reach efficiency, not headline ER: a handful of clips break out while the long tail builds steady, low-cost coverage.</span><span class="lang-th">จาก Nano ครีเอเตอร์ ${T.kol} ราย แคมเปญสร้าง <b>Impression ${full(T.imp)}</b>, <b>Reach ${full(T.reach)}</b> และ <b>Engagement ${full(T.eng)}</b> โดยมี ER รวมที่ <b>${(T.er*100).toFixed(2)}%</b> ปริมาณกระจายไม่เท่ากัน โดย <b>${topEng.a}</b> รายเดียวสร้าง Engagement ${full(topEng.eng)} (คิดเป็น ${topShareShare}% ของทั้งหมด) และมีเพียงสองรายคือ <b>${topEng.a}</b> กับ <b>bo.bunika</b> ที่แบกยอด Impression ส่วนใหญ่ บทสรุปของชั้น Nano seeding คือความคุ้มค่าด้าน Reach มากกว่าตัวเลข ER โดยมีไม่กี่คลิปที่ปังเป็นพิเศษ ขณะที่กลุ่ม Long-tail ช่วยสร้าง Coverage ต่อเนื่องในต้นทุนต่ำ</span>`;
+document.getElementById('ins-body').innerHTML=`<span class="lang-en">Across ${T.kol} Nano creators the campaign delivered <b>${full(T.imp)} impressions</b>, <b>${full(T.reach)} reach</b> and <b>${full(T.eng)} engagements</b> with a pooled ER of <b>${(T.er*100).toFixed(2)}%</b>. Volume is uneven: <b>${topEng.a}</b> alone produced ${full(topEng.eng)} engagements (${topShareShare}% of the total), and just two creators &mdash; <b>${topEng.a}</b> and <b>bo.bunika</b> &mdash; carry the bulk of impressions. The takeaway for a Nano seeding layer is reach efficiency, not headline ER: a handful of clips break out while the long tail builds steady, low-cost coverage.</span><span class="lang-th">Engagement กระจุกตัวสูงอยู่ที่ <b>${topEng.a}</b> ซึ่งสร้าง Engagement ได้ถึง ${topShareShare}% ของทั้งหมด ขณะที่กลุ่ม Long-tail ที่ช่วยขยายการมองเห็น โดยสามารถสร้าง View รวม ${fmt(T.vv)} และ Reach ${fmt(T.reach)} อย่างต่อเนื่องในต้นทุน Organic ได้อย่างมีประสิทธิภาพ สะท้อนให้เห็นว่าจุดแข็งของ Nano Creator อยู่ที่การช่วยเพิ่ม Reach ในต้นทุนที่คุ้มค่า มากกว่า Engagement Rate รวม</span>`;
 
 /* ---- TOP TABLE ---- */
 const headEN=['#','KOL','Channel','Followers','Impression','View','Reach','Engagement','ER'];
@@ -535,7 +537,16 @@ document.getElementById('demo-body').innerHTML=`<span class="lang-en">Weighted b
 
 /* highlights */
 const byEng=[...DATA].sort((a,b)=>b.eng-a.eng);
-const byEr=[...DATA].filter(d=>d.eng>5).sort((a,b)=>b.er-a.er);
+const byEr=[...DATA].filter(d=>d.eng>5&&d.a!==byEng[0].a).sort((a,b)=>b.er-a.er);
+function insightTH(d){
+  const er=(d.er*100).toFixed(2);
+  if((d.sh||0)>=50) return {tag:'สร้างยอดแชร์', th:`สร้างการแชร์ได้ถึง ${full(d.sh)} ครั้ง ส่งผลให้ Engagement เพิ่มขึ้นเป็น ${full(d.eng)} ครั้ง และทำ ER ได้สูงถึง ${er}% สะท้อนว่าคอนเทนต์มีความน่าสนใจและกระตุ้นการบอกต่อได้อย่างมีประสิทธิภาพ ที่โดดเด่นกว่ามาตรฐาน Nano Creator`};
+  if(d.er*100>=1.0) return {tag:'ER สูง', th:`สามารถสร้าง ER ได้สูงถึง ${er}% จากยอดวิว ${fmt(d.vv)} ครั้ง สะท้อนถึงคุณภาพของผู้ชมที่มีความสนใจในคอนเทนต์และพร้อมมีส่วนร่วม ${(d.fol||0)>=10000?'แม้จะมีฐานผู้ชมขนาดใหญ่ แต่ยังสามารถรักษาระดับ Engagement ได้อย่างมีประสิทธิภาพ':'แม้จะมีฐานผู้ชมไม่ใหญ่ แต่สามารถสร้าง Engagement ได้อย่างมีประสิทธิภาพ'}`};
+  if((d.imp||0)>=10000) return {tag:'ขับเคลื่อน Reach', th:`สร้าง Impression ${fmt(d.imp)} และ Reach ${fmt(d.reach)} ถือเป็นกำลังสำคัญในการสร้างการมองเห็นของแคมเปญ แม้จะอยู่ในกลุ่ม Nano Creator แต่สามารถสร้างผลงานได้ในระดับใกล้เคียงกับ Creator กลุ่ม Micro`};
+  if((d.fol||0)>=100000) return {tag:'ฐานผู้ติดตามสูง', th:`มีผู้ติดตามสูงถึง ${fmt(d.fol)} ช่วยเสริมความน่าเชื่อถือและสร้างการเชื่อมโยงกับแบรนด์ได้เป็นอย่างดี แม้ Organic Reach ต่อคลิปจะอยู่ที่ ${fmt(d.reach)} ครั้งและยังมีข้อจำกัดด้านการเข้าถึง แต่ยังคงมีคุณค่าในเชิง Brand Association และการสร้างภาพลักษณ์ของแบรนด์`};
+  if(d.er*100>=0.3) return {tag:'ดึงดูดยอดวิวได้ดี', th:`สามารถสร้างยอดวิวได้ ${fmt(d.vv)} ครั้ง และมี ER ${er}% สูงกว่าค่าเฉลี่ยของกลุ่ม สะท้อนว่าคอนเทนต์มีความสอดคล้องกับความสนใจของผู้ชมและสามารถกระตุ้นการมีส่วนร่วมได้ดี`};
+  return {tag:'เสริม Coverage', th:`ช่วยกระจายการเข้าถึงกลุ่มเป้าหมายในต้นทุนที่คุ้มค่า โดยสร้าง Impression ${fmt(d.imp)} ครั้ง และ Engagement ${full(d.eng)} ครั้ง จากฐานผู้ติดตาม ${fmt(d.fol)} ซึ่งเป็นผลลัพธ์ที่สอดคล้องกับบทบาทของ Nano Creator ที่เน้นการขยายการเข้าถึงและเพิ่มการรับรู้ของแบรนด์`};
+}
 const byReach=[...DATA].filter(d=>d.reach).sort((a,b)=>b.reach-a.reach);
 const byFol=[...DATA].sort((a,b)=>b.fol-a.fol);
 const picks=[
@@ -560,8 +571,8 @@ document.getElementById('highlight-grid').innerHTML=picks.map(p=>{const d=p.d;re
           <div class="asub">${tiktokIcon} TikTok &middot; Nano</div></div></div>
       <div class="aer"><span class="l">ER</span><span class="v">${(d.er*100).toFixed(2)}%</span></div>
     </div>
-    <div class="atags"><span class="atag"><span class="lang-en">${p.tag.en}</span><span class="lang-th">${p.tag.th}</span></span><span class="atag">${handle(d.a)}</span></div>
-    <div class="abody"><span class="lang-en">${p.body.en}</span><span class="lang-th">${p.body.th}</span></div>
+    <div class="atags"><span class="atag"><span class="lang-en">${p.tag.en}</span><span class="lang-th">${insightTH(d).tag}</span></span><span class="atag">${handle(d.a)}</span></div>
+    <div class="abody"><span class="lang-en">${p.body.en}</span><span class="lang-th">${insightTH(d).th}</span></div>
     <div class="ametrics">
       <div class="ametric"><div class="m-lbl"><span class="lang-en">Followers</span><span class="lang-th">ผู้ติดตาม</span></div><div class="m-val">${fmt(d.fol)}</div></div>
       <div class="ametric"><div class="m-lbl">Impression</div><div class="m-val">${fmt(d.imp)}</div></div>
